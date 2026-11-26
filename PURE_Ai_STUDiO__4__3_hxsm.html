@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="data:," />
+    <title>PURE AI STUDIO — AI Content Creation Course</title>
+    <!-- Zero external requests: system fonts only, so the page opens instantly
+         even on slow mobile data and inside TikTok / Instagram / WhatsApp
+         in-app browsers.
+         Layout follows the BlockFrame Academy structure: dark navy page,
+         slim sticky nav with a bright access button, a two-column hero
+         (headline card + course panel), oversized section titles, numbered
+         step cards, a centred price card and a curriculum grid. All copy,
+         prices, numbers and links are PURE AI STUDIO's own. -->
+    <style>
+      :root {
+        --bg: #07071a;
+        --bg-2: #0a0a24;
+        --surface: #12122c;
+        --surface-2: #171735;
+        --line: rgba(255, 255, 255, 0.09);
+        --ink: #f6f3ec;
+        --ink-soft: #b7b7cc;
+        --ink-faint: #8b8ba3;
+        --orange: #ff8a3c;
+        --orange-grad: linear-gradient(92deg, #ffc24d 0%, #ff8a3c 55%, #ff6a3d 100%);
+        --cyan: #4fc3f7;
+        --cyan-grad: linear-gradient(180deg, #8fdcff 0%, #4db8f5 55%, #2ea3ec 100%);
+        --cyan-ink: #06283f;
+        --green: #3ddc84;
+        --wa: #1fae55;
+        --wa-dark: #128c46;
+        --radius: 20px;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(ellipse 60% 34% at 18% 0%, rgba(46, 110, 190, 0.28), transparent 65%),
+          radial-gradient(ellipse 55% 30% at 88% 4%, rgba(255, 138, 60, 0.13), transparent 65%),
+          radial-gradient(ellipse 70% 40% at 50% 46%, rgba(30, 60, 140, 0.16), transparent 70%),
+          var(--bg);
+        color: var(--ink);
+        font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      body.urdu { font-family: "Noto Nastaliq Urdu", "Segoe UI", serif; line-height: 2; }
+      body.urdu h1, body.urdu h2, body.urdu h3, body.urdu .brand-name { letter-spacing: 0; text-transform: none; }
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.25rem; }
+      a { color: var(--cyan); }
+      img { max-width: 100%; display: block; }
+      .wrap { max-width: 1240px; margin: 0 auto; padding: 0 22px; }
+      section[id] { scroll-margin-top: 92px; }
+
+      /* ---------- Reveal (BlockFrame-style scroll animations) ----------
+         Elements start hidden and animate in as they scroll into view:
+         fade + rise, with scale / slide / pop variants and cascade
+         delays so cards and buttons arrive one after another. */
+      .reveal { opacity: 0; transform: translateY(38px) scale(.985); transition: opacity .9s ease, transform .95s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
+      .reveal.in { opacity: 1; transform: none; }
+      .reveal-scale { transform: translateY(24px) scale(.93); }
+      .reveal-left { transform: translateX(-46px); }
+      .reveal-right { transform: translateX(46px); }
+      .reveal-pop { transform: translateY(14px) scale(.88); }
+      .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; }
+      .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; } .reveal.d5 { transition-delay: .5s; }
+      @media (max-width: 860px) { .reveal-left, .reveal-right { transform: translateY(34px); } }
+
+      /* ---------- Entrance motion (page load, hero, buttons) ---------- */
+      @keyframes riseIn { from { opacity: 0; transform: translateY(30px) scale(.985); } to { opacity: 1; transform: none; } }
+      @keyframes popIn { 0% { opacity: 0; transform: scale(.55); } 60% { opacity: 1; transform: scale(1.07); } 100% { opacity: 1; transform: scale(1); } }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes navDrop { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: none; } }
+      @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+      @keyframes glowPulse {
+        0%, 100% { box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 50px rgba(255, 138, 60, 0.10); }
+        50% { box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 95px rgba(255, 138, 60, 0.24); }
+      }
+      .topbar { animation: navDrop .7s cubic-bezier(.16,1,.3,1) both; }
+      .hero-card { animation: riseIn .95s cubic-bezier(.16,1,.3,1) .05s both; }
+      .hero-side { animation: riseIn .95s cubic-bezier(.16,1,.3,1) .22s both; }
+      .hero-card h1 { animation: riseIn .9s cubic-bezier(.16,1,.3,1) .18s both; }
+      .hero-chips .chip { animation: popIn .6s cubic-bezier(.34,1.4,.64,1) both; }
+      .hero-chips .chip:nth-child(1) { animation-delay: .38s; }
+      .hero-chips .chip:nth-child(2) { animation-delay: .5s; }
+      .hero-ctas { animation: riseIn .9s cubic-bezier(.16,1,.3,1) .52s both; }
+      .hero-checks { animation: riseIn .9s cubic-bezier(.16,1,.3,1) .64s both; }
+      .hero-note { animation: riseIn .9s cubic-bezier(.16,1,.3,1) .76s both; }
+      .hero-pill { animation: fadeIn .8s ease .6s both; }
+      .course-panel > * { animation: riseIn .8s cubic-bezier(.16,1,.3,1) both; }
+      .course-panel > *:nth-child(1) { animation-delay: .32s; }
+      .course-panel > *:nth-child(2) { animation-delay: .4s; }
+      .course-panel > *:nth-child(3) { animation-delay: .48s; }
+      .course-panel > *:nth-child(4) { animation-delay: .56s; }
+      .course-panel > *:nth-child(5) { animation-delay: .64s; }
+      .course-panel > *:nth-child(6) { animation-delay: .72s; }
+      .course-panel > *:nth-child(7) { animation-delay: .82s; }
+      .course-panel .panel-mark svg { animation: floaty 4.5s ease-in-out infinite; }
+
+      /* Icons and number badges pop in when their card reveals */
+      .step .step-num, .card .ic, .tool .logo, .lecture .lec-num {
+        transform: scale(.35); opacity: 0;
+        transition: transform .65s cubic-bezier(.34,1.56,.64,1) .18s, opacity .45s ease .18s;
+      }
+      .step.in .step-num, .card.in .ic, .tool.in .logo, .lecture.in .lec-num { transform: scale(1); opacity: 1; }
+      .tool:hover .logo { transform: scale(1.07) rotate(-3deg); }
+
+      /* Buttons: shine sweep on hover, press feedback, price glow */
+      .cyan-btn, .access-btn, .ghost-btn, .wa-btn { position: relative; overflow: hidden; }
+      .cyan-btn::after, .access-btn::after, .wa-btn::after {
+        content: ""; position: absolute; top: 0; bottom: 0; left: -70%; width: 45%;
+        background: linear-gradient(100deg, transparent, rgba(255,255,255,.5), transparent);
+        transform: skewX(-18deg); transition: left .6s ease; pointer-events: none;
+      }
+      .cyan-btn:hover::after, .access-btn:hover::after, .wa-btn:hover::after { left: 130%; }
+      .cyan-btn:active, .access-btn:active, .ghost-btn:active, .wa-btn:active, .copy-btn:active, .social-btn:active { transform: scale(.965); }
+      .price-card.in { animation: glowPulse 3.6s ease-in-out infinite; }
+
+      /* ---------- Top nav (BlockFrame style) ---------- */
+      .topbar {
+        position: sticky; top: 0; z-index: 40;
+        background: rgba(7, 7, 26, 0.82);
+        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      .topbar-in { display: flex; align-items: center; gap: 18px; padding: 12px 0; }
+      .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); flex: none; }
+      .brand-mark {
+        width: 30px; height: 30px; border-radius: 8px; flex: none;
+        background: var(--orange-grad); display: grid; place-items: center;
+        box-shadow: 0 0 18px rgba(255, 138, 60, 0.55);
+      }
+      .brand-mark svg { width: 19px; height: 19px; }
+      .brand-name { font-weight: 800; font-size: 19px; line-height: 1.1; letter-spacing: .1px; white-space: nowrap; }
+      .brand-name .ai { color: var(--cyan); }
+      .nav-links { display: flex; gap: 30px; margin: 0 auto; }
+      .nav-links a {
+        color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 600;
+        padding: 6px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+      }
+      .nav-links a:hover { color: var(--cyan); border-bottom-color: var(--orange); }
+      .top-actions { display: flex; align-items: center; gap: 9px; flex: none; margin-inline-start: auto; }
+      .icon-btn {
+        width: 38px; height: 38px; min-height: 38px; border-radius: 50%;
+        border: 1px solid var(--line); background: var(--surface); cursor: pointer;
+        display: grid; place-items: center; padding: 0; transition: border-color .2s;
+      }
+      .icon-btn:hover { border-color: var(--cyan); }
+      .icon-btn svg { width: 19px; height: 19px; fill: var(--cyan); }
+      .icon-btn .off-icon { display: none; }
+      .icon-btn.muted .on-icon { display: none; }
+      .icon-btn.muted .off-icon { display: block; }
+      .icon-btn.muted svg { fill: #e0655a; }
+      .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+      .lang-toggle button {
+        border: 0; background: transparent; color: var(--ink-soft);
+        padding: 5px 12px; font-size: 13.5px; font-weight: 700; cursor: pointer; min-height: 36px; font-family: inherit;
+      }
+      .lang-toggle button.active { background: var(--orange-grad); color: #231303; }
+      .access-btn {
+        background: var(--cyan-grad); color: var(--cyan-ink); text-decoration: none;
+        font-weight: 800; font-size: 15px; padding: 10px 18px; border-radius: 11px;
+        display: inline-flex; align-items: center; gap: 8px; min-height: 44px; white-space: nowrap;
+        box-shadow: 0 10px 26px rgba(46, 163, 236, 0.4);
+        transition: transform .2s, box-shadow .2s;
+      }
+      .access-btn:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgba(46, 163, 236, 0.5); }
+      .access-btn .arr { font-weight: 900; }
+      .access-btn .lbl-short { display: none; }
+
+      /* ---------- Buttons ---------- */
+      .cyan-btn {
+        background: var(--cyan-grad); color: var(--cyan-ink); text-decoration: none;
+        font-weight: 800; font-size: 16.5px; padding: 15px 24px; border-radius: 13px;
+        display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 56px;
+        box-shadow: 0 14px 34px rgba(46, 163, 236, 0.42);
+        transition: transform .2s, box-shadow .2s;
+      }
+      .cyan-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(46, 163, 236, 0.52); }
+      .ghost-btn {
+        background: rgba(255, 255, 255, 0.05); color: var(--ink); text-decoration: none;
+        font-weight: 700; font-size: 16px; padding: 15px 22px; border-radius: 13px;
+        display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 56px;
+        border: 1px solid var(--line); transition: border-color .2s, background .2s;
+      }
+      .ghost-btn:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.08); }
+      .wa-btn {
+        background: var(--wa); color: #fff; text-decoration: none; font-weight: 700; font-size: 16px;
+        padding: 14px 24px; border-radius: 13px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 54px;
+        box-shadow: 0 12px 28px rgba(18, 140, 70, 0.4); transition: background .2s, transform .2s;
+      }
+      .wa-btn:hover { background: var(--wa-dark); transform: translateY(-2px); }
+      .wa-btn svg { width: 21px; height: 21px; fill: #fff; }
+
+      /* ---------- Hero ---------- */
+      .hero { padding: 46px 0 30px; position: relative; }
+      .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 34px; align-items: stretch; }
+      .hero-card {
+        background: linear-gradient(160deg, rgba(23, 23, 53, 0.92), rgba(10, 10, 32, 0.94));
+        border: 1px solid var(--line); border-radius: 26px;
+        padding: clamp(26px, 4vw, 44px);
+        box-shadow: var(--shadow);
+        display: flex; flex-direction: column; justify-content: center;
+      }
+      .hero h1 {
+        margin: 0 0 20px; font-size: clamp(38px, 5.4vw, 62px); line-height: 1.04;
+        font-weight: 800; letter-spacing: -0.02em;
+      }
+      .hero h1 .grad {
+        background: var(--orange-grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .hero-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 24px; }
+      .chip {
+        display: inline-flex; align-items: center; gap: 7px;
+        border: 1px solid rgba(79, 195, 247, 0.4); background: rgba(79, 195, 247, 0.08);
+        color: var(--ink); font-size: 13.5px; font-weight: 700;
+        padding: 7px 14px; border-radius: 999px;
+      }
+      .chip svg { width: 14px; height: 14px; stroke: var(--cyan); flex: none; }
+      .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+      .hero-checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 9px 20px; }
+      .hero-checks li { display: flex; gap: 9px; align-items: flex-start; font-size: 14.5px; font-weight: 600; }
+      .hero-checks svg { width: 17px; height: 17px; flex: none; margin-top: 3px; stroke: var(--green); }
+      .hero-note { margin: 0; font-size: 13px; color: var(--ink-faint); font-weight: 500; }
+      .hero-note s { color: #e0655a; }
+
+      /* Hero right: course panel (phone-frame style) */
+      .hero-side { position: relative; padding-top: 26px; }
+      .hero-pill {
+        position: absolute; top: 0; inset-inline-start: 50%; transform: translateX(-50%); z-index: 2;
+        background: #101024; border: 1px solid var(--line); border-radius: 14px;
+        padding: 9px 20px; display: flex; align-items: baseline; gap: 8px; white-space: nowrap;
+        box-shadow: 0 14px 30px rgba(0,0,0,.5);
+      }
+      [dir="rtl"] .hero-pill { transform: translateX(50%); }
+      .hero-pill b { color: var(--cyan); font-size: 21px; font-weight: 800; }
+      .hero-pill s { color: #e0655a; font-size: 15px; font-weight: 700; }
+      .hero-pill span { color: var(--ink-soft); font-size: 13px; font-weight: 600; }
+      .course-panel {
+        background: linear-gradient(170deg, var(--surface-2), #0c0c26);
+        border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 30px;
+        padding: 34px 26px 26px; height: 100%;
+        box-shadow: var(--shadow), 0 0 60px rgba(46, 110, 190, 0.22);
+        display: flex; flex-direction: column; gap: 12px; text-align: center;
+      }
+      .course-panel .panel-mark { display: flex; justify-content: center; }
+      .course-panel .panel-mark svg { width: 54px; height: 54px; }
+      .panel-brand { font-weight: 800; font-size: 25px; line-height: 1.15; }
+      .panel-brand .ai { color: var(--cyan); }
+      .panel-sub { font-size: 11.5px; font-weight: 800; letter-spacing: 3px; color: #ffb35c; text-transform: uppercase; }
+      .panel-title {
+        font-weight: 800; font-size: 20px; line-height: 1.3; letter-spacing: .3px;
+        background: rgba(79, 195, 247, 0.12); border: 1px solid rgba(79, 195, 247, 0.35);
+        padding: 11px 14px; border-radius: 12px;
+      }
+      .panel-price-box { border: 1.5px dashed rgba(255, 179, 92, 0.65); background: rgba(255, 138, 60, 0.07); border-radius: 16px; padding: 14px 16px; }
+      .panel-price-box .lbl { font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #ffb35c; text-transform: uppercase; }
+      .panel-price { font-size: 42px; font-weight: 800; line-height: 1.1; background: var(--orange-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .panel-price-box .was { font-size: 14px; color: var(--ink-soft); }
+      .panel-price-box .was s { color: #e0655a; font-weight: 700; }
+      .panel-list { list-style: none; margin: 2px 0 0; padding: 0; text-align: start; display: grid; gap: 8px; }
+      .panel-list li { display: flex; gap: 9px; align-items: flex-start; font-size: 14.5px; font-weight: 600; }
+      .panel-list svg { width: 17px; height: 17px; flex: none; margin-top: 3px; stroke: var(--green); }
+      .course-panel .cyan-btn { margin-top: auto; }
+
+      /* ---------- Sections ---------- */
+      section { padding: 56px 0 6px; }
+      .kicker {
+        text-align: center; font-size: 12.5px; font-weight: 800; letter-spacing: 3.5px;
+        color: #ffb35c; text-transform: uppercase; margin: 0 0 14px;
+      }
+      .sec-title {
+        margin: 0 auto 14px; text-align: center;
+        font-size: clamp(32px, 5.6vw, 58px); line-height: 1.06; font-weight: 800;
+        letter-spacing: -0.015em; text-transform: uppercase; max-width: 20ch;
+      }
+      .sec-title .grad { background: var(--orange-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      body.urdu .sec-title { text-transform: none; }
+      .sec-sub { margin: 0 auto 30px; text-align: center; color: var(--ink-soft); font-size: 16.5px; max-width: 62ch; font-weight: 500; }
+
+      /* ---------- Step cards ---------- */
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .step {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 26px 24px; transition: transform .2s, border-color .2s;
+      }
+      .step:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.22); }
+      .step-num {
+        width: 44px; height: 44px; border-radius: 12px; background: var(--orange-grad);
+        color: #231303; display: grid; place-items: center; font-weight: 800; font-size: 20px;
+        margin-bottom: 16px; box-shadow: 0 8px 20px rgba(255, 138, 60, 0.35);
+      }
+      .step-tag {
+        display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 1.6px;
+        color: var(--ink-soft); background: rgba(255,255,255,.07); border: 1px solid var(--line);
+        padding: 3px 10px; border-radius: 999px; margin-bottom: 12px; text-transform: uppercase;
+      }
+      .step-tag.ai { color: #ffffff; background: #1e40af; border-color: transparent; }
+      .step h3 { margin: 0 0 8px; font-size: 19px; font-weight: 700; }
+      .step p { margin: 0; color: var(--ink-soft); font-size: 15px; font-weight: 500; }
+      .steps-note { text-align: center; margin: 20px 0 0; color: var(--ink-soft); font-size: 15.5px; }
+      .steps-note b { color: var(--ink); }
+
+      /* ---------- Centred price card ---------- */
+      .price-card {
+        max-width: 480px; margin: 38px auto 0; text-align: center;
+        background: linear-gradient(170deg, #1b1b3d, #0d0d26);
+        border: 1px solid rgba(255, 179, 92, 0.4); border-radius: 24px;
+        padding: 32px 30px 28px;
+        box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 70px rgba(255, 138, 60, 0.14);
+      }
+      .price-card .pc-kicker { font-size: 12px; font-weight: 800; letter-spacing: 3px; color: #ffb35c; text-transform: uppercase; margin: 0 0 6px; }
+      .price-card .pc-price { font-size: 54px; font-weight: 800; line-height: 1.05; margin: 0; }
+      .price-card .pc-price s { font-size: 24px; color: #e0655a; font-weight: 700; margin-inline-end: 8px; }
+      .price-card .pc-once { color: var(--ink-soft); font-size: 14px; margin: 2px 0 18px; font-weight: 600; }
+      .price-card ul { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 9px; text-align: start; }
+      .price-card li { display: flex; gap: 9px; align-items: flex-start; font-size: 15px; font-weight: 600; }
+      .price-card li svg { width: 17px; height: 17px; flex: none; margin-top: 3px; stroke: var(--cyan); }
+      .price-card .cyan-btn { width: 100%; }
+      .price-card .pc-link { display: inline-block; margin-top: 14px; color: var(--ink-soft); font-size: 14px; font-weight: 600; }
+
+      /* ---------- Includes ---------- */
+      .includes-card {
+        background: var(--surface); border: 1px solid var(--line); border-radius: 24px;
+        padding: clamp(22px, 3.4vw, 34px); box-shadow: var(--shadow);
+      }
+      .includes-card > h3 { margin: 0 0 6px; font-size: clamp(21px, 3vw, 26px); font-weight: 700; }
+      .includes-card > p { margin: 0 0 18px; color: var(--ink-soft); font-size: 15.5px; font-weight: 500; max-width: 64ch; }
+      .includes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; }
+      .includes li { display: flex; gap: 9px; align-items: flex-start; font-size: 15px; font-weight: 600; }
+      .includes svg { width: 18px; height: 18px; flex: none; margin-top: 3px; stroke: var(--green); }
+
+      /* ---------- Curriculum / lectures ---------- */
+      .lectures { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .lecture {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 20px; display: flex; gap: 16px; align-items: flex-start;
+        transition: transform .2s, border-color .2s;
+      }
+      .lecture:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.22); }
+      .lec-num {
+        width: 42px; height: 42px; flex: none; border-radius: 11px;
+        background: rgba(79, 195, 247, 0.12); border: 1px solid rgba(79, 195, 247, 0.4);
+        color: var(--cyan); display: grid; place-items: center; font-weight: 800; font-size: 16px;
+      }
+      .lecture h3 { margin: 2px 0 4px; font-size: 16.5px; font-weight: 700; }
+      .lecture p { margin: 0; color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+      .lecture.master { grid-column: 1 / -1; border-color: rgba(255, 179, 92, 0.55); background: linear-gradient(120deg, rgba(255, 138, 60, 0.12), var(--surface) 60%); }
+      .lecture.master .lec-num { background: var(--orange-grad); border-color: transparent; color: #231303; }
+      .lecture.master h3 { background: var(--orange-grad); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+
+      /* ---------- Feature cards (method) ---------- */
+      .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .card {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 26px 24px; transition: transform .2s, border-color .2s;
+      }
+      .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.22); }
+      .card .ic { width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 15px; background: rgba(79, 195, 247, 0.12); }
+      .card .ic.gold { background: rgba(255, 138, 60, 0.14); }
+      .card .ic svg { width: 25px; height: 25px; fill: var(--cyan); }
+      .card .ic.gold svg { fill: #ffb35c; }
+      .card h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
+      .card p { margin: 0; color: var(--ink-soft); font-size: 15px; font-weight: 500; }
+
+      /* ---------- Tools ---------- */
+      .tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+      .tool {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 22px 14px; text-align: center; transition: transform .2s, border-color .2s;
+      }
+      .tool:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.22); }
+      .tool .logo { width: 54px; height: 54px; margin: 0 auto 12px; border-radius: 15px; display: grid; place-items: center; box-shadow: 0 10px 22px rgba(0,0,0,.45); }
+      .tool .logo svg { width: 29px; height: 29px; fill: #fff; }
+      .tool .logo .logo-letter { font-weight: 800; font-size: 24px; color: #fff; line-height: 1; }
+      .tool h3 { margin: 0; font-size: 16px; font-weight: 700; }
+
+      /* ---------- Payment ---------- */
+      .pay-info {
+        max-width: 720px; margin: 0 auto;
+        background: linear-gradient(170deg, #1b1b3d, #0d0d26);
+        border: 1px solid rgba(255, 179, 92, 0.45); border-radius: 24px;
+        padding: 26px 24px; box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 60px rgba(255, 138, 60, 0.12);
+      }
+      .pay-info-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+      .pay-info-head svg { width: 26px; height: 26px; fill: #ffb35c; flex: none; }
+      .pay-info-head h3 { margin: 0; font-size: 20px; font-weight: 700; }
+      .pay-holder { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; padding: 12px 0 4px; }
+      .pay-holder span { font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-faint); }
+      .pay-holder b { font-size: 21px; letter-spacing: 1px; color: var(--ink); }
+      .pay-acct {
+        display: flex; align-items: center; gap: 12px; margin-top: 12px;
+        background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 14px; padding: 13px 16px;
+      }
+      .pay-acct-info { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+      .pay-bank { font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); }
+      .pay-num { font-size: 21px; font-weight: 800; letter-spacing: 1.5px; color: var(--ink); user-select: all; -webkit-user-select: all; cursor: text; }
+      .copy-btn {
+        margin-inline-start: auto; flex: none; border: 0; cursor: pointer;
+        background: var(--orange-grad); color: #231303; font-weight: 800; font-size: 14px;
+        padding: 9px 18px; border-radius: 10px; min-height: 42px; min-width: 98px;
+        box-shadow: 0 10px 22px rgba(255, 138, 60, 0.3); transition: transform .2s;
+      }
+      .copy-btn:hover { transform: translateY(-1px); }
+      .copy-btn.copied { background: linear-gradient(135deg, #34c172, #128c46); color: #fff; box-shadow: 0 10px 22px rgba(18,140,70,.35); }
+      .pay-note { margin: 14px 0 0; font-size: 14px; color: var(--ink-soft); font-weight: 500; }
+      .enroll-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 980px; margin: 26px auto 0; }
+
+      /* ---------- Social ---------- */
+      .social-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .social-btn {
+        display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+        border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+        font-weight: 700; font-size: 15.5px; padding: 13px 22px; border-radius: 999px; min-height: 52px;
+        transition: transform .2s, border-color .2s;
+      }
+      .social-btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.3); }
+      .social-btn svg { width: 21px; height: 21px; flex: none; }
+      .social-btn .handle { color: var(--cyan); font-weight: 800; }
+      .social-btn.gold .handle { color: #ffb35c; }
+
+      /* ---------- Footer ---------- */
+      footer { margin-top: 64px; border-top: 1px solid var(--line); background: rgba(255,255,255,.02); }
+      .foot-in { padding: 30px 0 8px; text-align: center; }
+      .foot-in .brand-name { font-size: 21px; }
+      .foot-in p { font-size: 14.5px; color: var(--ink-soft); margin: 8px auto 0; max-width: 54ch; font-weight: 500; }
+      .foot-base { padding: 12px 0 24px; font-size: 13px; color: var(--ink-faint); text-align: center; font-weight: 500; }
+
+      /* ---------- Floating WhatsApp button ---------- */
+      @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(31, 174, 85, 0.45); } 70% { box-shadow: 0 0 0 16px rgba(31, 174, 85, 0); } 100% { box-shadow: 0 0 0 0 rgba(31, 174, 85, 0); } }
+      .wa-float {
+        position: fixed; inset-inline-end: 16px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 90;
+        width: 46px; height: 46px; min-height: 46px; border-radius: 50%;
+        background: linear-gradient(135deg, #2bd46b, var(--wa) 55%, var(--wa-dark));
+        display: grid; place-items: center; text-decoration: none;
+        box-shadow: 0 10px 22px rgba(18, 140, 70, 0.45), inset 0 1px 0 rgba(255,255,255,.45);
+        animation: pulse-ring 2.6s ease-out infinite;
+        transition: transform .2s;
+        cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-user-drag: none;
+      }
+      .wa-float:hover { transform: translateY(-3px) scale(1.04); }
+      .wa-float.dragging { animation: none; transition: none; cursor: grabbing; transform: scale(1.08); }
+      .wa-float svg { width: 25px; height: 25px; fill: #fff; pointer-events: none; }
+      @media (prefers-reduced-motion: reduce) { .wa-float { animation: none; } }
+
+
+      /* ---------- Toast ---------- */
+      .toast {
+        position: fixed; left: 50%; bottom: 26px; z-index: 200;
+        transform: translate(-50%, 18px); opacity: 0; pointer-events: none;
+        background: #17173a; color: #fff; padding: 12px 22px; border-radius: 12px;
+        border: 1px solid var(--line);
+        font-weight: 700; font-size: 14.5px; text-align: center;
+        max-width: calc(100vw - 32px); box-shadow: 0 14px 34px rgba(0, 0, 0, .5);
+        transition: opacity .3s ease, transform .3s ease;
+      }
+      .toast.show { opacity: 1; transform: translate(-50%, 0); }
+      .toast.ok { background: #128c46; }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 1020px) {
+        .nav-links { display: none; }
+        .tools { grid-template-columns: repeat(3, 1fr); }
+      }
+      @media (max-width: 860px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .steps, .cards, .enroll-steps { grid-template-columns: 1fr; }
+        .lectures { grid-template-columns: 1fr; }
+        .includes { grid-template-columns: 1fr; }
+        .hero-checks { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 640px) {
+        .wrap { padding: 0 14px; }
+        .topbar-in { gap: 8px; padding: 10px 0; }
+        .brand { gap: 7px; }
+        .brand-mark { width: 26px; height: 26px; border-radius: 7px; }
+        .brand-mark svg { width: 16px; height: 16px; }
+        .tools { grid-template-columns: repeat(2, 1fr); }
+        .pay-num { font-size: 18px; }
+        .brand-name { font-size: 14px; letter-spacing: 0; white-space: nowrap; }
+        .lang-toggle button { padding: 4px 9px; font-size: 12.5px; min-height: 34px; }
+        .access-btn { font-size: 12.5px; padding: 8px 11px; min-height: 38px; }
+        .access-btn .arr { display: none; }
+        .access-btn .lbl-full { display: none; }
+        .access-btn .lbl-short { display: inline; }
+        .icon-btn { display: none; }
+        .hero { padding-top: 30px; }
+        .hero-ctas .cyan-btn, .hero-ctas .ghost-btn { flex: 1 1 100%; }
+        .toast { bottom: 96px; }
+        section { padding-top: 44px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .topbar, .hero-card, .hero-side, .hero-card h1, .hero-chips .chip, .hero-ctas,
+        .hero-checks, .hero-note, .hero-pill, .course-panel > *, .course-panel .panel-mark svg,
+        .price-card.in { animation: none; }
+        .step .step-num, .card .ic, .tool .logo, .lecture .lec-num { transform: none; opacity: 1; transition: none; }
+        .cyan-btn::after, .access-btn::after, .wa-btn::after { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top nav -->
+    <header class="topbar">
+      <div class="wrap topbar-in">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 5 L41 18 L24 43 L7 18 Z" fill="rgba(255,255,255,.28)" stroke="#231303" stroke-width="2.4" stroke-linejoin="round"/><path d="M7 18 H41 M24 5 L15.5 18 L24 43 M24 5 L32.5 18 L24 43" stroke="#231303" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="brand-name">PURE <span class="ai">AI</span> STUDIO</span>
+        </a>
+        <nav class="nav-links" aria-label="Sections">
+          <a href="#course" data-en="Course" data-ur="کورس">Course</a>
+          <a href="#lectures" data-en="Lectures" data-ur="لیکچرز">Lectures</a>
+          <a href="#method" data-en="Method" data-ur="طریقہ">Method</a>
+          <a href="#tools" data-en="Tools" data-ur="ٹولز">Tools</a>
+          <a href="#pay" data-en="Pricing" data-ur="قیمت">Pricing</a>
+        </nav>
+        <div class="top-actions">
+          <button type="button" class="icon-btn" id="soundToggle" aria-label="Toggle sound" aria-pressed="true">
+            <svg class="on-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+            <svg class="off-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4-2.7-2.7z"/></svg>
+          </button>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button type="button" id="langEn" class="active">EN</button>
+            <button type="button" id="langUr">اردو</button>
+          </div>
+          <a class="access-btn snd" href="#pay"><span class="lbl-full" data-en="Get Full Access" data-ur="مکمل رسائی حاصل کریں">Get Full Access</span><span class="lbl-short" data-en="Get Access" data-ur="رسائی لیں">Get Access</span><span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-card reveal in">
+          <h1 data-en="Make trending AI videos <span class='grad'>that can earn money.</span>"
+              data-ur="ٹرینڈنگ اے آئی ویڈیوز بنائیں <span class='grad'>جو پیسے کما سکیں۔</span>">Make trending AI videos <span class="grad">that can earn money.</span></h1>
+          <div class="hero-chips">
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="No paid tool needed" data-ur="پیڈ ٹول کی ضرورت نہیں">No paid tool needed</span></span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="No editing experience needed" data-ur="ایڈیٹنگ تجربے کی ضرورت نہیں">No editing experience needed</span></span>
+          </div>
+          <div class="hero-ctas">
+            <a class="cyan-btn snd" href="#pay"><span data-en="Get Full Access — Rs 1,500" data-ur="مکمل رسائی حاصل کریں — 1,500 روپے">Get Full Access — Rs 1,500</span><span aria-hidden="true">→</span></a>
+            <a class="ghost-btn snd" href="#lectures"><span aria-hidden="true">▶</span><span data-en="See the lectures" data-ur="لیکچرز دیکھیں">See the lectures</span></a>
+          </div>
+          <ul class="hero-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="7 recorded lectures + Ultimate Master Prompts" data-ur="7 ریکارڈ شدہ لیکچرز + الٹیمیٹ ماسٹر پرامپٹس">7 recorded lectures + Ultimate Master Prompts</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Videos straight from text — no image needed" data-ur="صرف ٹیکسٹ سے ویڈیوز — امیج کی ضرورت نہیں">Videos straight from text — no image needed</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Free &amp; paid methods both explained" data-ur="فری اور پیڈ دونوں طریقے سمجھائے گئے">Free &amp; paid methods both explained</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Personal guidance in chat" data-ur="چیٹ میں ذاتی رہنمائی">Personal guidance in chat</span></li>
+          </ul>
+          <p class="hero-note" data-en="One-time payment. Regular price <s>Rs 2,000</s> — discounted to Rs 1,500 for a limited time."
+             data-ur="ایک بار ادائیگی۔ عام قیمت <s>2,000 روپے</s> — محدود مدت کے لیے رعایت کے ساتھ 1,500 روپے۔">One-time payment. Regular price <s>Rs 2,000</s> — discounted to Rs 1,500 for a limited time.</p>
+        </div>
+
+        <div class="hero-side reveal in">
+          <div class="hero-pill" aria-hidden="true"><s>Rs 2,000</s><b>Rs 1,500</b><span data-en="limited-time discount" data-ur="محدود مدت کی رعایت">limited-time discount</span></div>
+          <div class="course-panel">
+            <div class="panel-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 4 L42 18 L24 44 L6 18 Z" fill="#123a5c" stroke="#4fc3f7" stroke-width="2" stroke-linejoin="round"/><path d="M6 18 H42 M24 4 L15 18 L24 44 M24 4 L33 18 L24 44" stroke="#ffb35c" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="panel-brand">PURE <span class="ai">AI</span> STUDIO</div>
+            <div class="panel-sub">AI Content Creation</div>
+            <div class="panel-title" data-en="COMPLETE AI COURSE" data-ur="مکمل اے آئی کورس">COMPLETE AI COURSE</div>
+            <div class="panel-price-box">
+              <div class="lbl" data-en="Special Discount — Limited Time" data-ur="خصوصی رعایت — محدود مدت">Special Discount — Limited Time</div>
+              <div class="panel-price">Rs 1,500</div>
+              <div class="was"><span data-en="Regular price" data-ur="عام قیمت">Regular price</span> <s>Rs 2,000</s></div>
+            </div>
+            <ul class="panel-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Complete A to Z training" data-ur="مکمل اے ٹو زیڈ ٹریننگ">Complete A to Z training</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Ultimate Master Prompts included" data-ur="الٹیمیٹ ماسٹر پرامپٹس شامل">Ultimate Master Prompts included</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Simple &amp; beginner-friendly" data-ur="آسان، نئے سیکھنے والوں کے لیے">Simple &amp; beginner-friendly</span></li>
+            </ul>
+            <a class="cyan-btn snd" target="_blank" rel="noopener" href="https://wa.me/923487484184?text=Assalam-o-Alaikum!%20I%20want%20to%20enroll%20in%20the%20%22Complete%20AI%20Course%22%20by%20PURE%20AI%20STUDIO%20(Rs%201%2C500).%20I%20will%20pay%20via%20Easypaisa%20%2F%20NayaPay%20%2F%20UBL.">
+              <span data-en="Enroll on WhatsApp" data-ur="واٹس ایپ پر داخلہ لیں">Enroll on WhatsApp</span><span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <!-- How it works -->
+      <section id="how">
+        <p class="kicker reveal" data-en="How it works" data-ur="طریقہ کار">How it works</p>
+        <h2 class="sec-title reveal" data-en="You direct. <span class='grad'>AI does the work.</span>"
+            data-ur="آپ ہدایت دیں۔ <span class='grad'>کام اے آئی کرے۔</span>">You direct. <span class="grad">AI does the work.</span></h2>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">1</div>
+            <span class="step-tag" data-en="You" data-ur="آپ">You</span>
+            <h3 data-en="Write your prompt" data-ur="اپنا پرامپٹ لکھیں">Write your prompt</h3>
+            <p data-en="Use the Ultimate Master Prompts to turn a simple idea into a ready video prompt — plain text is all you need." data-ur="الٹیمیٹ ماسٹر پرامپٹس سے سادہ خیال کو تیار ویڈیو پرامپٹ میں بدلیں — صرف ٹیکسٹ ہی کافی ہے۔">Use the Ultimate Master Prompts to turn a simple idea into a ready video prompt — plain text is all you need.</p>
+          </div>
+          <div class="step reveal d1">
+            <div class="step-num">2</div>
+            <span class="step-tag ai">AI</span>
+            <h3 data-en="AI builds the video" data-ur="اے آئی ویڈیو بنائے">AI builds the video</h3>
+            <p data-en="Characters, scenes and voices: AI creates the video directly from your text — no image needed, and the new method is 100% free." data-ur="کردار، مناظر اور آوازیں: اے آئی آپ کے ٹیکسٹ سے براہِ راست ویڈیو بناتا ہے — امیج کی ضرورت نہیں، اور نیا طریقہ 100٪ فری ہے۔">Characters, scenes and voices: AI creates the video directly from your text — no image needed, and the new method is 100% free.</p>
+          </div>
+          <div class="step reveal d2">
+            <div class="step-num">3</div>
+            <span class="step-tag" data-en="You" data-ur="آپ">You</span>
+            <h3 data-en="Edit &amp; post" data-ur="ایڈٹ کریں اور پوسٹ کریں">Edit &amp; post</h3>
+            <p data-en="Polish it in InShot and upload it the right way on TikTok — every click is shown in the lectures, step by step." data-ur="اسے InShot میں نکھاریں اور ٹک ٹاک پر صحیح طریقے سے اپ لوڈ کریں — لیکچرز میں ہر قدم مرحلہ وار دکھایا گیا ہے۔">Polish it in InShot and upload it the right way on TikTok — every click is shown in the lectures, step by step.</p>
+          </div>
+        </div>
+        <p class="steps-note reveal" data-en="<b>No drawing. No paid tool.</b> The course shows you every step."
+           data-ur="<b>نہ ڈرائنگ، نہ پیڈ ٹول۔</b> کورس میں ہر قدم دکھایا گیا ہے۔"><b>No drawing. No paid tool.</b> The course shows you every step.</p>
+
+        <div class="price-card reveal reveal-scale">
+          <p class="pc-kicker" data-en="Complete Course" data-ur="مکمل کورس">Complete Course</p>
+          <p class="pc-price"><s>Rs 2,000</s>Rs 1,500</p>
+          <p class="pc-once" data-en="one-time payment" data-ur="ایک بار ادائیگی">one-time payment</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="7 recorded lectures + Ultimate Master Prompts" data-ur="7 ریکارڈ شدہ لیکچرز + الٹیمیٹ ماسٹر پرامپٹس">7 recorded lectures + Ultimate Master Prompts</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Instant access after payment — start right away" data-ur="ادائیگی کے فوراً بعد رسائی — فوراً شروع کریں">Instant access after payment — start right away</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Personal guidance in chat &amp; DM" data-ur="چیٹ اور ڈی ایم میں ذاتی رہنمائی">Personal guidance in chat &amp; DM</span></li>
+          </ul>
+          <a class="cyan-btn snd" href="#pay"><span data-en="Get Full Access" data-ur="مکمل رسائی حاصل کریں">Get Full Access</span><span aria-hidden="true">→</span></a>
+          <a class="pc-link snd" href="#course" data-en="See everything that's included ↓" data-ur="دیکھیں کیا کیا شامل ہے ↓">See everything that's included ↓</a>
+        </div>
+      </section>
+
+      <!-- Course includes -->
+      <section id="course">
+        <p class="kicker reveal" data-en="Inside the course" data-ur="کورس کے اندر">Inside the course</p>
+        <h2 class="sec-title reveal" data-en="Everything <span class='grad'>that's included.</span>"
+            data-ur="جو کچھ <span class='grad'>شامل ہے۔</span>">Everything <span class="grad">that's included.</span></h2>
+        <p class="sec-sub reveal" data-en="The complete A-to-Z AI content course by PURE AI STUDIO — recorded lectures, the Ultimate Master Prompts, and personal guidance in chat with our new strategy: make almost any trending video within minutes, free — no paid tool needed."
+           data-ur="پیور اے آئی اسٹوڈیو کا مکمل اے ٹو زیڈ اے آئی کانٹینٹ کورس — ریکارڈ شدہ لیکچرز، الٹیمیٹ ماسٹر پرامپٹس، اور چیٹ میں ذاتی رہنمائی ہماری نئی اسٹریٹجی کے ساتھ: تقریباً کوئی بھی ٹرینڈنگ ویڈیو منٹوں میں بنائیں، بالکل فری — کسی پیڈ ٹول کی ضرورت نہیں۔">The complete A-to-Z AI content course by PURE AI STUDIO — recorded lectures, the Ultimate Master Prompts, and personal guidance in chat with our new strategy: make almost any trending video within minutes, free — no paid tool needed.</p>
+        <div class="includes-card reveal">
+          <h3 data-en="Complete AI Course — AI Content Creation" data-ur="مکمل اے آئی کورس — اے آئی کانٹینٹ کریشن">Complete AI Course — AI Content Creation</h3>
+          <p data-en="A complete, practical course on creating AI content end to end — AI videos, reels and shorts, prompt creation, editing and uploading. Simple and beginner-friendly."
+             data-ur="اے آئی کانٹینٹ بنانے کا مکمل اور عملی کورس — اے آئی ویڈیوز، ریلز اور شارٹس، پرامپٹ بنانا، ایڈیٹنگ اور اپ لوڈنگ۔ آسان اور نئے سیکھنے والوں کے لیے موزوں۔">A complete, practical course on creating AI content end to end — AI videos, reels and shorts, prompt creation, editing and uploading. Simple and beginner-friendly.</p>
+          <ul class="includes">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Complete A to Z Training" data-ur="مکمل اے ٹو زیڈ ٹریننگ">Complete A to Z Training</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="AI Videos, Reels, Shorts &amp; Content" data-ur="اے آئی ویڈیوز، ریلز، شارٹس اور کانٹینٹ">AI Videos, Reels, Shorts &amp; Content</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Free &amp; Paid Methods Explained" data-ur="فری اور پیڈ طریقے سمجھائے گئے">Free &amp; Paid Methods Explained</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Simple &amp; Beginner-Friendly" data-ur="آسان، نئے سیکھنے والوں کے لیے">Simple &amp; Beginner-Friendly</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Step-by-Step Complete Workflow" data-ur="مرحلہ وار مکمل ورک فلو">Step-by-Step Complete Workflow</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="AI Video Creation &amp; Editing" data-ur="اے آئی ویڈیو بنانا اور ایڈیٹنگ">AI Video Creation &amp; Editing</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Creation to Uploading Guidance" data-ur="بنانے سے اپ لوڈ تک رہنمائی">Creation to Uploading Guidance</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Customer Support Included" data-ur="کسٹمر سپورٹ شامل">Customer Support Included</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Social Media Content Creation" data-ur="سوشل میڈیا کانٹینٹ بنانا">Social Media Content Creation</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Professional Editing &amp; Publishing" data-ur="پروفیشنل ایڈیٹنگ اور پبلشنگ">Professional Editing &amp; Publishing</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Lectures / curriculum -->
+      <section id="lectures">
+        <p class="kicker reveal" data-en="Curriculum" data-ur="نصاب">Curriculum</p>
+        <h2 class="sec-title reveal" data-en="7 lectures. One <span class='grad'>complete workflow.</span>"
+            data-ur="7 لیکچرز۔ ایک <span class='grad'>مکمل ورک فلو۔</span>">7 lectures. One <span class="grad">complete workflow.</span></h2>
+        <p class="sec-sub reveal" data-en="The recorded lectures included in the course — watch in order, step by step."
+           data-ur="کورس میں شامل ریکارڈ شدہ لیکچرز — ترتیب سے، مرحلہ وار دیکھیں۔">The recorded lectures included in the course — watch in order, step by step.</p>
+        <div class="lectures">
+          <div class="lecture reveal"><span class="lec-num">01</span><div><h3>Content Creation</h3><p data-en="Start creating AI content the right way." data-ur="اے آئی کانٹینٹ صحیح طریقے سے بنانا شروع کریں۔">Start creating AI content the right way.</p></div></div>
+          <div class="lecture reveal d1"><span class="lec-num">02</span><div><h3>Content Creation — Part 2</h3><p data-en="Go deeper into content creation." data-ur="کانٹینٹ کریشن میں مزید آگے بڑھیں۔">Go deeper into content creation.</p></div></div>
+          <div class="lecture reveal"><span class="lec-num">03</span><div><h3>Prompt Creation</h3><p data-en="Write prompts that produce the video you want." data-ur="ایسے پرامپٹس لکھیں جو آپ کی مرضی کی ویڈیو بنائیں۔">Write prompts that produce the video you want.</p></div></div>
+          <div class="lecture reveal d1"><span class="lec-num">04</span><div><h3>Content Uploading</h3><p data-en="Upload your finished content correctly." data-ur="اپنا تیار کانٹینٹ صحیح طریقے سے اپ لوڈ کریں۔">Upload your finished content correctly.</p></div></div>
+          <div class="lecture reveal"><span class="lec-num">05</span><div><h3>Editing in InShot</h3><p data-en="Edit your videos in InShot, step by step." data-ur="اپنی ویڈیوز InShot میں مرحلہ وار ایڈٹ کریں۔">Edit your videos in InShot, step by step.</p></div></div>
+          <div class="lecture reveal d1"><span class="lec-num">06</span><div><h3>Editing in InShot — Part 2</h3><p data-en="Finish your edits like a professional." data-ur="اپنی ایڈیٹنگ پروفیشنل انداز میں مکمل کریں۔">Finish your edits like a professional.</p></div></div>
+          <div class="lecture reveal"><span class="lec-num">07</span><div><h3>TikTok Video Uploading Method</h3><p data-en="The correct method to upload on TikTok." data-ur="ٹک ٹاک پر اپ لوڈ کرنے کا صحیح طریقہ۔">The correct method to upload on TikTok.</p></div></div>
+          <div class="lecture master reveal"><span class="lec-num">★</span><div><h3>Ultimate Master Prompts Included</h3><p data-en="The studio's ultimate prompts — create videos directly from text, no image needed — free with the course" data-ur="اسٹوڈیو کے الٹیمیٹ پرامپٹس — صرف ٹیکسٹ سے براہِ راست ویڈیو بنائیں، کسی امیج کی ضرورت نہیں — کورس کے ساتھ فری">The studio's ultimate prompts — create videos directly from text, no image needed — free with the course</p></div></div>
+        </div>
+      </section>
+
+      <!-- New method -->
+      <section id="method">
+        <p class="kicker reveal" data-en="The new method" data-ur="نیا طریقہ">The new method</p>
+        <h2 class="sec-title reveal" data-en="Personal guidance <span class='grad'>in chat.</span>"
+            data-ur="چیٹ میں <span class='grad'>ذاتی رہنمائی۔</span>">Personal guidance <span class="grad">in chat.</span></h2>
+        <div class="cards">
+          <div class="card reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></div>
+            <h3 data-en="Trending videos in minutes" data-ur="منٹوں میں ٹرینڈنگ ویڈیوز">Trending videos in minutes</h3>
+            <p data-en="With the new strategy, almost any type of trending video can be made within minutes — the same style of videos you see going viral." data-ur="نئی اسٹریٹجی سے تقریباً ہر قسم کی ٹرینڈنگ ویڈیو منٹوں میں بن جاتی ہے — ویسی ہی ویڈیوز جو وائرل ہوتی نظر آتی ہیں۔">With the new strategy, almost any type of trending video can be made within minutes — the same style of videos you see going viral.</p>
+          </div>
+          <div class="card reveal d1">
+            <div class="ic gold"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2zM9 20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg></div>
+            <h3 data-en="100% free — no paid tool needed" data-ur="100٪ فری — پیڈ ٹول کی ضرورت نہیں">100% free — no paid tool needed</h3>
+            <p data-en="The new method works completely free. You do not need to buy any paid tool to start creating and uploading." data-ur="نیا طریقہ مکمل طور پر فری کام کرتا ہے۔ بنانا اور اپ لوڈ کرنا شروع کرنے کے لیے کوئی پیڈ ٹول خریدنے کی ضرورت نہیں۔">The new method works completely free. You do not need to buy any paid tool to start creating and uploading.</p>
+          </div>
+          <div class="card reveal d2">
+            <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-9 9H7V9h4v2zm6 0h-4V9h4v2z"/></svg></div>
+            <h3 data-en="Personal guidance in chat &amp; DM" data-ur="چیٹ اور ڈی ایم میں ذاتی رہنمائی">Personal guidance in chat &amp; DM</h3>
+            <p data-en="You are not left alone with recordings — guidance continues personally in chat, and the new strategy is shared with you there." data-ur="آپ کو صرف ریکارڈنگز پر نہیں چھوڑا جاتا — رہنمائی چیٹ میں ذاتی طور پر جاری رہتی ہے، اور نئی اسٹریٹجی وہیں شیئر کی جاتی ہے۔">You are not left alone with recordings — guidance continues personally in chat, and the new strategy is shared with you there.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tools -->
+      <section id="tools">
+        <p class="kicker reveal" data-en="Also available" data-ur="یہ بھی دستیاب">Also available</p>
+        <h2 class="sec-title reveal" data-en="Premium tools, <span class='grad'>discounted.</span>"
+            data-ur="پریمیم ٹولز، <span class='grad'>رعایتی قیمت پر۔</span>">Premium tools, <span class="grad">discounted.</span></h2>
+        <p class="sec-sub reveal" data-en="Need the premium tools for your workflow? They are also available at a discounted price — just ask on WhatsApp."
+           data-ur="اپنے ورک فلو کے لیے پریمیم ٹولز چاہئیں؟ یہ بھی رعایتی قیمت پر دستیاب ہیں — بس واٹس ایپ پر پوچھیں۔">Need the premium tools for your workflow? They are also available at a discounted price — just ask on WhatsApp.</p>
+        <div class="tools">
+          <div class="tool reveal">
+            <div class="logo" style="background:#10a37f;"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20 7v10l-8 4.5L4 17V7l8-4.5zm0 2.2L6 8.1v7.8l6 3.4 6-3.4V8.1l-6-3.4zM12 7l4.3 2.5v5L12 17l-4.3-2.5v-5L12 7z"/></svg></div>
+            <h3>ChatGPT Plus</h3>
+          </div>
+          <div class="tool reveal d1">
+            <div class="logo" style="background:#26262e;"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9.5 13.5v-9l7 4.5-7 4.5z"/></svg></div>
+            <h3>CapCut Pro</h3>
+          </div>
+          <div class="tool reveal d2">
+            <div class="logo" style="background:linear-gradient(135deg,#1ba0f2,#7b5cff);"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 5.8 4.2 9.4 10 10-5.8.6-9.4 4.2-10 10-.6-5.8-4.2-9.4-10-10C7.8 11.4 11.4 7.8 12 2z"/></svg></div>
+            <h3>Gemini</h3>
+          </div>
+          <div class="tool reveal">
+            <div class="logo" style="background:#1c1c26;"><span class="logo-letter">K</span></div>
+            <h3>Kling AI</h3>
+          </div>
+          <div class="tool reveal d1">
+            <div class="logo" style="background:linear-gradient(135deg,#ff7a59,#ff4d8d);"><span class="logo-letter">M</span></div>
+            <h3>Muse AI</h3>
+          </div>
+          <div class="tool reveal d2">
+            <div class="logo" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8);"><span class="logo-letter" style="font-style:italic;">C</span></div>
+            <h3>Canva Pro</h3>
+          </div>
+          <div class="tool reveal">
+            <div class="logo" style="background:#316dfe;"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 22 20H2L12 3zm0 5.2L7.4 17h9.2L12 8.2z"/></svg></div>
+            <h3>NordVPN</h3>
+          </div>
+          <div class="tool reveal d1">
+            <div class="logo" style="background:#1ebfa5;"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5c-4.8 1-8.2 3.4-10.3 7.2C8.4 14 8.6 17.4 10 20.5c-3.4-1.2-5.7-4-6-7.6-.3-3.9 1.9-7.3 5.4-9C12.6 2.3 16.7 2.4 20.5 3.5zM7.6 12.4a1.5 1.5 0 1 0 1.5-1.5 1.5 1.5 0 0 0-1.5 1.5z"/></svg></div>
+            <h3>Surfshark VPN</h3>
+          </div>
+          <div class="tool reveal d2">
+            <div class="logo" style="background:#26262e;"><span class="logo-letter">R</span></div>
+            <h3>Runway</h3>
+          </div>
+          <div class="tool reveal">
+            <div class="logo" style="background:linear-gradient(135deg,#a855f7,#ec4899);"><span class="logo-letter">L</span></div>
+            <h3>Leonardo AI</h3>
+          </div>
+          <div class="tool reveal d1">
+            <div class="logo" style="background:#26262e;"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3.4v16H7zM13.6 4H17v16h-3.4z"/></svg></div>
+            <h3>ElevenLabs</h3>
+          </div>
+          <div class="tool reveal d2">
+            <div class="logo" style="background:linear-gradient(135deg,#ffc24d,#ff8a3c);"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 5.8 4.2 9.4 10 10-5.8.6-9.4 4.2-10 10-.6-5.8-4.2-9.4-10-10C7.8 11.4 11.4 7.8 12 2z" fill="#231303"/></svg></div>
+            <h3 data-en="And many more" data-ur="اور بہت سے مزید">And many more</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Payment / pricing -->
+      <section id="pay">
+        <p class="kicker reveal" data-en="Pricing" data-ur="قیمت">Pricing</p>
+        <h2 class="sec-title reveal" data-en="Payment <span class='grad'>information.</span>"
+            data-ur="ادائیگی کی <span class='grad'>معلومات۔</span>">Payment <span class="grad">information.</span></h2>
+        <p class="sec-sub reveal" data-en="Pay Rs 1,500 to either account below — then send the screenshot on WhatsApp and your course access is activated right away."
+           data-ur="نیچے دیے گئے کسی بھی اکاؤنٹ میں 1,500 روپے ادا کریں — پھر اسکرین شاٹ واٹس ایپ پر بھیجیں اور آپ کی کورس رسائی فوراً فعال کر دی جائے گی۔">Pay Rs 1,500 to either account below — then send the screenshot on WhatsApp and your course access is activated right away.</p>
+        <div class="pay-info reveal reveal-scale">
+          <div class="pay-info-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 7H5a1 1 0 0 1 0-2h14V3H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zm-4 7a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 17 14z"/></svg>
+            <h3 data-en="Payment Information" data-ur="ادائیگی کی معلومات">Payment Information</h3>
+          </div>
+          <div class="pay-holder">
+            <span data-en="Account Title" data-ur="اکاؤنٹ ٹائٹل">Account Title</span>
+            <b>ASIYAN HASSAN</b>
+          </div>
+          <div class="pay-acct">
+            <div class="pay-acct-info">
+              <span class="pay-bank">Easypaisa | NayaPay</span>
+              <span class="pay-num">0335 9154342</span>
+            </div>
+            <button type="button" class="copy-btn" data-copy="03359154342"><span data-en="Copy" data-ur="کاپی کریں">Copy</span></button>
+          </div>
+          <div class="pay-acct">
+            <div class="pay-acct-info">
+              <span class="pay-bank">United Bank Limited (UBL)</span>
+              <span class="pay-num">316889748</span>
+            </div>
+            <button type="button" class="copy-btn" data-copy="316889748"><span data-en="Copy" data-ur="کاپی کریں">Copy</span></button>
+          </div>
+          <p class="pay-note" data-en="Tap Copy — only the account number digits are copied, ready to paste into your banking app."
+             data-ur="Copy دبائیں — صرف اکاؤنٹ نمبر کے ہندسے کاپی ہوتے ہیں، آپ کی بینکنگ ایپ میں پیسٹ کرنے کے لیے تیار۔">Tap Copy — only the account number digits are copied, ready to paste into your banking app.</p>
+        </div>
+
+        <div class="enroll-steps">
+          <div class="step reveal">
+            <div class="step-num">1</div>
+            <h3 data-en="Message on WhatsApp" data-ur="واٹس ایپ پر پیغام بھیجیں">Message on WhatsApp</h3>
+            <p data-en="Tap any enroll button — your enrollment message is already written. Just send it." data-ur="کوئی بھی داخلے کا بٹن دبائیں — آپ کا پیغام پہلے سے لکھا ہوا ہے۔ بس بھیج دیں۔">Tap any enroll button — your enrollment message is already written. Just send it.</p>
+          </div>
+          <div class="step reveal d1">
+            <div class="step-num">2</div>
+            <h3 data-en="Pay Rs 1,500" data-ur="1,500 روپے ادا کریں">Pay Rs 1,500</h3>
+            <p data-en="Pay Rs 1,500 using the payment details above — Easypaisa, NayaPay or UBL bank transfer — and send the screenshot on WhatsApp." data-ur="اوپر دی گئی تفصیلات سے 1,500 روپے ادا کریں — Easypaisa، NayaPay یا UBL بینک ٹرانسفر — اور اسکرین شاٹ واٹس ایپ پر بھیجیں۔">Pay Rs 1,500 using the payment details above — Easypaisa, NayaPay or UBL bank transfer — and send the screenshot on WhatsApp.</p>
+          </div>
+          <div class="step reveal d2">
+            <div class="step-num">3</div>
+            <h3 data-en="Start learning" data-ur="سیکھنا شروع کریں">Start learning</h3>
+            <p data-en="Get full course access and start learning right away." data-ur="کورس تک مکمل رسائی حاصل کریں اور فوراً سیکھنا شروع کریں۔">Get full course access and start learning right away.</p>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:26px;" class="reveal reveal-pop">
+          <a class="wa-btn snd" target="_blank" rel="noopener" href="https://wa.me/923487484184?text=Assalam-o-Alaikum!%20I%20want%20to%20enroll%20in%20the%20%22Complete%20AI%20Course%22%20by%20PURE%20AI%20STUDIO%20(Rs%201%2C500).%20I%20will%20pay%20via%20Easypaisa%20%2F%20NayaPay%20%2F%20UBL.">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.87 9.87 0 0 0 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.38-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.58 1.74-1.14.27-.56.27-1.04.19-1.14-.08-.1-.23-.16-.48-.29z"/></svg>
+            <span data-en="Enroll on WhatsApp" data-ur="واٹس ایپ پر داخلہ لیں">Enroll on WhatsApp</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Follow -->
+      <section id="follow">
+        <p class="kicker reveal" data-en="Community" data-ur="کمیونٹی">Community</p>
+        <h2 class="sec-title reveal" data-en="Follow <span class='grad'>PURE AI STUDIO.</span>"
+            data-ur="فالو کریں <span class='grad'>پیور اے آئی اسٹوڈیو۔</span>">Follow <span class="grad">PURE AI STUDIO.</span></h2>
+        <p class="sec-sub reveal" data-en="Watch the AI videos, join the community, and message any time."
+           data-ur="اے آئی ویڈیوز دیکھیں، کمیونٹی جوائن کریں، اور کسی بھی وقت پیغام بھیجیں۔">Watch the AI videos, join the community, and message any time.</p>
+        <div class="social-row reveal">
+          <a class="social-btn snd" target="_blank" rel="noopener" href="https://www.tiktok.com/@puresheru">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#f6f3ec"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            <span>TikTok <span class="handle">@puresheru</span></span>
+          </a>
+          <a class="social-btn snd" target="_blank" rel="noopener" href="https://www.instagram.com/dostsherubhai">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#4fc3f7"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.9A6.1 6.1 0 1 0 18.1 12 6.1 6.1 0 0 0 12 5.9zm0 10.1A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm7.9-10.4a1.4 1.4 0 1 1-1.4-1.4 1.4 1.4 0 0 1 1.4 1.4z"/></svg>
+            <span>Instagram <span class="handle">@dostsherubhai</span></span>
+          </a>
+          <a class="social-btn gold snd" target="_blank" rel="noopener" href="https://chat.whatsapp.com/FmqBh5bVco5CfOS7ZeD5ua">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#3ddc84"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.87 9.87 0 0 0 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.38-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.58 1.74-1.14.27-.56.27-1.04.19-1.14-.08-.1-.23-.16-.48-.29z"/></svg>
+            <span data-en="WhatsApp Community" data-ur="واٹس ایپ کمیونٹی">WhatsApp Community</span>
+          </a>
+          <a class="social-btn gold snd" target="_blank" rel="noopener" href="https://wa.me/923487484184?text=Assalam-o-Alaikum!%20I%20have%20a%20question%20about%20the%20Complete%20AI%20Course%20by%20PURE%20AI%20STUDIO.">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#3ddc84"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.87 9.87 0 0 0 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.38-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.58 1.74-1.14.27-.56.27-1.04.19-1.14-.08-.1-.23-.16-.48-.29z"/></svg>
+            <span>WhatsApp <span class="handle">0348-7484184</span></span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="wrap foot-in">
+        <span class="brand-name">PURE <span style="color: var(--cyan);">AI</span> STUDIO</span>
+        <p data-en="Complete AI Course — create trending AI videos, step by step."
+           data-ur="مکمل اے آئی کورس — ٹرینڈنگ اے آئی ویڈیوز بنائیں، مرحلہ وار۔">Complete AI Course — create trending AI videos, step by step.</p>
+      </div>
+      <div class="wrap foot-base" data-en="© 2026 PURE AI STUDIO. Prices in PKR."
+           data-ur="© 2026 پیور اے آئی اسٹوڈیو۔ قیمتیں PKR میں ہیں۔">© 2026 PURE AI STUDIO. Prices in PKR.</div>
+    </footer>
+
+
+    <!-- Floating WhatsApp button -->
+    <a class="wa-float snd" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" href="https://wa.me/923487484184?text=Assalam-o-Alaikum!%20I%20want%20to%20enroll%20in%20the%20%22Complete%20AI%20Course%22%20by%20PURE%20AI%20STUDIO%20(Rs%201%2C500).%20I%20will%20pay%20via%20Easypaisa%20%2F%20NayaPay%20%2F%20UBL.">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.87 9.87 0 0 0 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.38-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.58 1.74-1.14.27-.56.27-1.04.19-1.14-.08-.1-.23-.16-.48-.29z"/></svg>
+    </a>
+
+    <div class="toast" id="copyToast" role="status" aria-live="polite"></div>
+
+    <script>
+      (function () {
+        /* ---------- Language ---------- */
+        function setLang(next) {
+          document.documentElement.lang = next === 'ur' ? 'ur' : 'en';
+          document.documentElement.dir = next === 'ur' ? 'rtl' : 'ltr';
+          document.body.classList.toggle('urdu', next === 'ur');
+          document.getElementById('langEn').classList.toggle('active', next === 'en');
+          document.getElementById('langUr').classList.toggle('active', next === 'ur');
+          var nodes = document.querySelectorAll('[data-en]');
+          for (var i = 0; i < nodes.length; i++) {
+            nodes[i].innerHTML = next === 'ur' ? nodes[i].getAttribute('data-ur') : nodes[i].getAttribute('data-en');
+          }
+        }
+        document.getElementById('langEn').addEventListener('click', function () { setLang('en'); });
+        document.getElementById('langUr').addEventListener('click', function () { setLang('ur'); });
+
+        /* ---------- Reveal animations ---------- */
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var revealEls = document.querySelectorAll('.reveal');
+        if (reduced || !('IntersectionObserver' in window)) {
+          for (var r = 0; r < revealEls.length; r++) revealEls[r].classList.add('in');
+        } else {
+          var io = new IntersectionObserver(function (entries) {
+            /* Everything that scrolls into view in the same moment is
+               revealed as a cascade — top to bottom, one after another,
+               like the reference site — instead of all at once. */
+            var batch = [];
+            entries.forEach(function (e) { if (e.isIntersecting) batch.push(e.target); });
+            batch.sort(function (a, b) {
+              var ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+              return (ra.top - rb.top) || (ra.left - rb.left);
+            });
+            batch.forEach(function (el, i) {
+              el.style.transitionDelay = Math.min(i * 90, 450) + 'ms';
+              el.classList.add('in');
+              io.unobserve(el);
+              setTimeout(function () { el.style.transitionDelay = ''; }, 1500);
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+          revealEls.forEach(function (el) { io.observe(el); });
+          /* Safety net: force-reveal only what is already on screen (or
+             scrolled past), so nothing visible can stay stuck hidden —
+             sections further down keep their scroll animation. */
+          setTimeout(function () {
+            revealEls.forEach(function (el) {
+              if (el.getBoundingClientRect().top < window.innerHeight + 120) el.classList.add('in');
+            });
+          }, 3000);
+        }
+
+        /* ---------- Sound (on by default, toggle to turn off) ---------- */
+        var soundOn = true;
+        var audioCtx = null;
+        var welcomed = false;
+        function ensureCtx() {
+          if (!audioCtx) {
+            var AC = window.AudioContext || window.webkitAudioContext;
+            if (!AC) return null;
+            audioCtx = new AC();
+          }
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+          return audioCtx;
+        }
+        function tone(freq, start, dur, vol, type) {
+          var ctx = ensureCtx();
+          if (!ctx || !soundOn) return;
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.type = type || 'sine';
+          osc.frequency.value = freq;
+          var t = ctx.currentTime + start;
+          gain.gain.setValueAtTime(0.0001, t);
+          gain.gain.exponentialRampToValueAtTime(vol, t + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(t); osc.stop(t + dur + 0.05);
+        }
+        function welcomeChime() {
+          if (welcomed || !soundOn) return;
+          welcomed = true;
+          tone(523.25, 0, 0.35, 0.05);
+          tone(659.25, 0.12, 0.35, 0.05);
+          tone(783.99, 0.24, 0.5, 0.055);
+        }
+        function clickSound() { tone(880, 0, 0.09, 0.035, 'triangle'); }
+        /* Sound starts ON: try the welcome chime right away; browsers that
+           block audio before a first tap play it on that first tap instead. */
+        try { ensureCtx(); welcomeChime(); } catch (e) {}
+        document.addEventListener('pointerdown', function () { welcomeChime(); }, { once: false });
+        var sndEls = document.querySelectorAll('.snd');
+        sndEls.forEach(function (el) { el.addEventListener('click', clickSound); });
+        var soundBtn = document.getElementById('soundToggle');
+        soundBtn.addEventListener('click', function () {
+          soundOn = !soundOn;
+          soundBtn.classList.toggle('muted', !soundOn);
+          soundBtn.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+          if (soundOn) { welcomed = false; welcomeChime(); }
+        });
+
+        /* ---------- Copy account numbers ----------
+           The value copied is ALWAYS the digits in the button's data-copy
+           attribute — never text read from the page — so the account title
+           (the name above the numbers) can never end up on the clipboard.
+           Layered approach, because this page usually runs inside an app
+           webview / iframe where the async Clipboard API is often blocked:
+           1) execCommand on a temp input holding exactly those digits,
+           2) navigator.clipboard (verified by reading the clipboard back
+              where the browser allows it), 3) select the visible number
+              so the visitor can copy it manually.
+           "Copied" is shown ONLY when a copy really happened. */
+        var copyToast = document.getElementById('copyToast');
+        var toastTimer = null;
+        function showToast(msg, ok) {
+          if (!copyToast) return;
+          copyToast.textContent = msg;
+          copyToast.classList.toggle('ok', !!ok);
+          copyToast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () { copyToast.classList.remove('show'); }, 3000);
+        }
+        function legacyCopy(text) {
+          /* Clear any existing page selection first: with a stale selection
+             (e.g. the account title) some webviews copy that instead of the
+             field's value. The temp input holds ONLY the digits. */
+          try {
+            var sel = window.getSelection();
+            if (sel) sel.removeAllRanges();
+          } catch (e) {}
+          var input = document.createElement('input');
+          input.type = 'text';
+          input.value = text;
+          input.setAttribute('readonly', '');
+          input.style.position = 'fixed';
+          input.style.top = '0';
+          input.style.left = '0';
+          input.style.width = '100%';
+          input.style.height = '44px';
+          input.style.padding = '0';
+          input.style.border = 'none';
+          input.style.outline = 'none';
+          input.style.opacity = '0.01';
+          input.style.fontSize = '16px';
+          document.body.appendChild(input);
+          var ok = false;
+          try {
+            input.focus();
+            input.select();
+            input.setSelectionRange(0, text.length);
+            ok = document.execCommand('copy');
+          } catch (e) { ok = false; }
+          document.body.removeChild(input);
+          return ok;
+        }
+        function selectNumber(btn) {
+          var acct = btn.closest ? btn.closest('.pay-acct') : null;
+          var numEl = acct ? acct.querySelector('.pay-num') : null;
+          if (!numEl) return;
+          try {
+            var range = document.createRange();
+            range.selectNodeContents(numEl);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+          } catch (e) {}
+          numEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
+        var copyBtns = document.querySelectorAll('.copy-btn');
+        copyBtns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var text = btn.getAttribute('data-copy');
+            var label = btn.querySelector('span');
+            var urdu = document.body.classList.contains('urdu');
+            var succeeded = function () {
+              btn.classList.add('copied');
+              if (label) label.textContent = urdu ? 'کاپی ہو گیا ✓' : 'Copied ✓';
+              clickSound();
+              showToast(urdu ? 'نمبر کاپی ہو گیا ✓' : 'Number copied ✓', true);
+              setTimeout(function () {
+                btn.classList.remove('copied');
+                if (label) label.textContent = urdu ? 'کاپی کریں' : 'Copy';
+              }, 2000);
+            };
+            var failed = function () {
+              selectNumber(btn);
+              showToast(urdu ? 'نمبر منتخب ہو گیا ہے — اسے دبا کر رکھیں اور Copy منتخب کریں' : 'Number selected — long-press it and tap Copy', false);
+            };
+            var attemptClipboard = function () {
+              try {
+                if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+                  navigator.clipboard.writeText(text).then(function () {
+                    /* Verify where possible: if the clipboard now holds
+                       something else (e.g. the account name), do not claim
+                       success — fall back to selecting the number. */
+                    if (navigator.clipboard.readText) {
+                      navigator.clipboard.readText().then(function (clip) {
+                        if (clip && clip.replace(/\D/g, '') === text) succeeded();
+                        else if (clip) failed();
+                        else succeeded();
+                      }, function () { succeeded(); });
+                    } else {
+                      succeeded();
+                    }
+                  }, failed);
+                } else {
+                  failed();
+                }
+              } catch (e) { failed(); }
+            };
+            /* Synchronous legacy copy runs first, inside the tap itself —
+               the most reliable path in in-app webviews. */
+            if (legacyCopy(text)) succeeded();
+            else attemptClipboard();
+          });
+        });
+
+
+
+        /* ---------- Draggable floating WhatsApp button ----------
+           Press and drag to move it anywhere on screen; a plain tap
+           (no real movement) still opens WhatsApp. Position is kept
+           for this session only (in-memory, nothing stored). */
+        var waBtn = document.querySelector('.wa-float');
+        if (waBtn) {
+          var waDrag = null, waMoved = false, waSuppressClick = false;
+          waBtn.addEventListener('pointerdown', function (e) {
+            var r = waBtn.getBoundingClientRect();
+            waDrag = { id: e.pointerId, dx: e.clientX - r.left, dy: e.clientY - r.top, x0: e.clientX, y0: e.clientY };
+            waMoved = false;
+            try { waBtn.setPointerCapture(e.pointerId); } catch (err) {}
+          });
+          waBtn.addEventListener('pointermove', function (e) {
+            if (!waDrag || e.pointerId !== waDrag.id) return;
+            if (!waMoved && Math.abs(e.clientX - waDrag.x0) + Math.abs(e.clientY - waDrag.y0) < 8) return;
+            waMoved = true;
+            waBtn.classList.add('dragging');
+            var w = waBtn.offsetWidth, h = waBtn.offsetHeight, m = 6;
+            var nx = Math.min(Math.max(e.clientX - waDrag.dx, m), window.innerWidth - w - m);
+            var ny = Math.min(Math.max(e.clientY - waDrag.dy, m), window.innerHeight - h - m);
+            waBtn.style.left = nx + 'px';
+            waBtn.style.top = ny + 'px';
+            waBtn.style.right = 'auto';
+            waBtn.style.bottom = 'auto';
+            waBtn.style.insetInlineEnd = 'auto';
+            e.preventDefault();
+          });
+          function waEndDrag(e) {
+            if (!waDrag || (e && e.pointerId !== waDrag.id)) return;
+            waDrag = null;
+            waBtn.classList.remove('dragging');
+            if (waMoved) {
+              waSuppressClick = true;
+              setTimeout(function () { waSuppressClick = false; }, 50);
+            }
+            waMoved = false;
+          }
+          waBtn.addEventListener('pointerup', waEndDrag);
+          waBtn.addEventListener('pointercancel', waEndDrag);
+          waBtn.addEventListener('click', function (e) {
+            if (waSuppressClick) { e.preventDefault(); e.stopPropagation(); }
+          }, true);
+          waBtn.addEventListener('dragstart', function (e) { e.preventDefault(); });
+        }
+      })();
+    </script>
+  </body>
+</html>
